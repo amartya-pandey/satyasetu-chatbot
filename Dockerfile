@@ -1,5 +1,5 @@
 # Use Python 3.11 slim image
-FROM python:3.13-slim
+FROM python:3.11-slim
 
 # Set working directory
 WORKDIR /app
@@ -20,9 +20,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy application code
 COPY . .
 
-# Create necessary directories
-RUN mkdir -p /app/data /app/chroma_db /app/app /app/app/api /app/app/core /app/app/models /app/app/schemas /app/app/services && \
-    touch /app/app/__init__.py /app/app/api/__init__.py /app/app/core/__init__.py /app/app/models/__init__.py /app/app/schemas/__init__.py /app/app/services/__init__.py
+# Create necessary directories (only if they don't exist)
+RUN mkdir -p /app/data /app/chroma_db
 
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
