@@ -25,8 +25,6 @@ RUN mkdir -p /app/data
 # Create chroma_db directory
 RUN mkdir -p /app/chroma_db
 
-# Expose port
-EXPOSE 8080
 
 # Start command
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0"]
