@@ -19,11 +19,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY . .
 
-# Create data directory for SQLite
-RUN mkdir -p /app/data
+# Create necessary directories
+RUN mkdir -p /app/data /app/chroma_db
 
-# Create chroma_db directory
-RUN mkdir -p /app/chroma_db
+# Verify app module exists
+RUN python -c "import sys; print(sys.path); import app; print('App module loaded successfully')"
 
 # Expose port
 EXPOSE 8080
