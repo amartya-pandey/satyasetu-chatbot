@@ -1,10 +1,11 @@
 from fastapi import APIRouter, HTTPException, status, Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from app.core.security import get_password_hash, verify_password, create_access_token, decode_access_token
-from app.models.mongo_models import User
+from app.models.mongo_models import User, Conversation
 from app.schemas.user import UserCreate, UserLogin, UserResponse, Token
 from beanie import PydanticObjectId
 from typing import Optional
+from datetime import datetime
 
 router = APIRouter(prefix="/auth/mongo", tags=["MongoDB Authentication"])
 security = HTTPBearer()
