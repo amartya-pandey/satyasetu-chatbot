@@ -26,6 +26,7 @@ RUN mkdir -p /app/data /app/chroma_db
 # Set environment variables
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONPATH=/app
 
 # Expose port (Railway will set PORT env variable)
 EXPOSE 8080
